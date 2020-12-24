@@ -1,0 +1,72 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-24 19:59:29
+ * @LastEditors: xujintai
+ * @LastEditTime: 2020-12-24 20:18:16
+ * @Description: file content
+ * @FilePath: \Vue3\test\test.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // class Person {
+    //   FName = "原型属性FirstName"
+    //   LName = "原型属性LastName"
+
+    //   constructor(FirstName, LastName) {
+    //     this.FirstName = FirstName
+    //     this.LastName = LastName
+    //   }
+
+    //   FN1() {
+    //     return 'FN1'
+    //   }
+
+    //   FN2() {
+    //     return 'FN2'
+    //   }
+
+    //   FN3 = function () {
+    //     return 'FN3'
+    //   }
+    // }
+    // let person1 = new Person('王丰', '韦')
+    // console.log(Person.prototype.FN1); //函数FN1
+    // console.log(person1.FN1); //函数FN1
+    // console.log(Person.prototype.FName); //undefined
+    // console.log(person1.FName); //"原型属性FirstName"
+    // console.log(Person.prototype.FN3); //undefined
+    // console.log(person1.FN3); //函数FN3
+
+
+
+    class Person {
+      FN1() {
+        return 'FN1'
+      }
+
+      FN2() {
+        return 'FN2'
+      }
+
+      FN3 = function () {
+        return 'FN3'
+      }
+    }
+    let person1 = new Person('王丰', '韦')
+    console.log(person1.FName); //'原型属性FirstName'
+    console.log(Person.prototype.FName); //undefined
+    console.log(Person.prototype);
+  </script>
+
+</body>
+
+</html>
