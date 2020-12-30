@@ -3,7 +3,7 @@
  * @Author: xujintai
  * @Date: 2020-12-26 18:29:18
  * @LastEditors: xujintai
- * @LastEditTime: 2020-12-28 19:30:45
+ * @LastEditTime: 2020-12-30 17:15:57
  * @Description: file content
  * @FilePath: \Vue3\typescript\04-ts基础类型\联合类型.ts
  */
@@ -23,3 +23,15 @@ function fn(x) {
 }
 console.log(fn('hello'));
 console.log(fn(12345));
+//类型断言
+function fn1(x) {
+    if (x) {
+        // return (<string>x).length
+        return x.length;
+    }
+    else {
+        return x.toString().length;
+    }
+}
+console.log(fn1('hello'));
+console.log(fn1(12345));
