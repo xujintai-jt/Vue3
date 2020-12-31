@@ -3,7 +3,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 13:52:03
  * @LastEditors: xujintai
- * @LastEditTime: 2020-12-31 14:25:32
+ * @LastEditTime: 2020-12-31 16:23:06
  * @Description: file content
  * @FilePath: \Vue3\typescript\05-ts接口\03_类.ts
  */
@@ -33,4 +33,6 @@
         };
         return myFly2;
     }());
+    var fly2 = new myFly2();
+    console.log(fly2);
 })();
