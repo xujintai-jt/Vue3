@@ -2,14 +2,14 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2020-12-31 16:53:18
+ * @LastEditTime: 2021-01-01 15:17:58
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>|
-    <router-link to="/about">About</router-link>
+    <!-- <router-link to="/">Home</router-link>| -->
+    <!-- <router-link to="/about">About</router-link> -->
   </div>
   <router-view />
 </template>
