@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-01 21:29:19
+ * @LastEditTime: 2021-01-01 21:37:24
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -92,12 +92,14 @@ export default {
       如果是reactive对象中的属性,  必须通过函数来指定
     */
     const fullName3 = ref("");
-    watch([() => user.firstName, () => user.lastName, fullName3], (values) => {
-      console.log(values);
+    watch([() => user.firstName, () => user.lastName], (values) => {
       fullName3.value = values[0] + "-" + values[1];
-      // user.firstName = values[2].split("-")[0];
-      // user.lastName = values[2].split("-")[1];
-      // values[2] = values[0] + "-" + values[1];
+    });
+
+    watch(fullName3, () => {
+      const arr = fullName3.value.split("-");
+      user.firstName = arr[0];
+      user.lastName = arr[1];
     });
 
     return {
