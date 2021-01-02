@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-01 21:37:24
+ * @LastEditTime: 2021-01-02 17:58:30
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -118,6 +118,7 @@ input {
   width: 260px;
   font-size: 20px;
 }
+
 .fullName {
   input {
     margin-bottom: 15px;
