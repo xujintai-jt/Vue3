@@ -1,3 +1,11 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2020-12-31 16:38:52
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-01-05 23:05:28
+ * @Description: file content
+ * @FilePath: \Vue3\vue3-demo\src\App.vue
+-->
 <template>
   <div class="App">
     <!-- 页面坐标 -->
@@ -13,7 +21,7 @@
     <!-- ajax -->
     <h2>ajax</h2>
     <div v-if="isLoading">loading</div>
-    <div v-else-if="errorMessage">loading</div>
+    <div v-else-if="errorMessage">errorMessage</div>
     <ul v-else>
       <li>id:{{successMessage[0].id}}</li>
       <li>address:{{successMessage[0].address}}</li>
@@ -33,7 +41,9 @@ export default {
   // 需求1: 收集用户鼠标点击的页面坐标
   // 需求2: 封装axios
   setup() {
+    // 需求1: 收集用户鼠标点击的页面坐标
     const { value } = useMousePosition();
+    // 需求2: 封装axios
     const { isLoading, errorMessage, successMessage } = useRequest(
       "./public下的data/address.json"
     );
