@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-24 19:59:29
  * @LastEditors: xujintai
- * @LastEditTime: 2020-12-24 20:18:16
+ * @LastEditTime: 2021-01-07 18:51:36
  * @Description: file content
  * @FilePath: \Vue3\test\test.html
 -->
@@ -47,7 +47,6 @@
     // console.log(person1.FN3); //函数FN3
 
 
-
     class Person {
       FN1() {
         return 'FN1'
@@ -61,6 +60,7 @@
         return 'FN3'
       }
     }
+
     let person1 = new Person('王丰', '韦')
     console.log(person1.FName); //'原型属性FirstName'
     console.log(Person.prototype.FName); //undefined
