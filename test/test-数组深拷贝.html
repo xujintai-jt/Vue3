@@ -1,0 +1,55 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-01-07 12:31:54
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-01-07 17:57:19
+ * @Description: file content
+ * @FilePath: \Vue3\test\test-数组深拷贝.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 数组深拷贝
+    // 1.slice方法
+    var arr = [1, 2, 3, [1, 2], {
+      a: 1
+    }]
+
+    var arr2 = arr.slice()
+    arr2[3] = 5
+    console.log(arr2[3] === arr[3]); //false
+
+
+    // 2.concat方法
+    var arr = [1, 2, 3, [1, 2], {
+      a: 1
+    }]
+
+    var arr2 = arr.concat()
+    arr2[3] = 5
+    console.log(arr2[3] === arr[3]); //false
+
+
+    // 3.扩展运算符方法
+    var arr = [1, 2, 3, [1, 2], {
+      a: 1
+    }]
+
+    var arr2 = [...arr]
+    console.log(arr2);
+    console.log(arr);
+    arr2[3] = 5
+    console.log(arr2[3] === arr[3]); //false
+  </script>
+
+</body>
+
+</html>

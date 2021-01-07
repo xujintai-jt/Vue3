@@ -1,32 +1,24 @@
 <template>
   <div id="app">
-    <div>name:{{name}}</div>
-    <div>age:{{age}}</div>
+    <input type="text" ref="input1" />
+    <br />
+    <input type="text" ref="input2" />
   </div>
 </template>
 
-<script>
-import { reactive, toRefs } from "vue";
+<script lang="ts">
+import { reactive, toRefs, ref, onMounted } from "vue";
 export default {
   setup() {
-    const state = reactive({
-      name: "xjt",
-      age: 22,
+    const input1 = ref<HTMLElement | null>(null);
+    console.log("input1", input1);
+
+    onMounted(() => {
+      // console.log("input1.value", input1.value);
+      input1.value && input1.value.focus();
     });
-
-    const stated = toRefs(state);
-    console.log(stated);
-    const { name, age } = toRefs(state);
-
-    setInterval(() => {
-      state.age += "---";
-    }, 500);
-
     return {
-      //非响应式
-      // ...state,
-      name,
-      age,
+      input1,
     };
   },
 };
