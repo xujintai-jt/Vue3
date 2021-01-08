@@ -2,13 +2,13 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-08 21:45:26
+ * @LastEditTime: 2021-01-08 21:37:51
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
 <template>
   <div id="app">
-    <!-- <div>testToRaw:{{state.age}}</div>
+    <!-- <div>testToRaw:{{state2.age}}</div>
     <button @click="testToRaw">testToRaw</button>-->
 
     <div>testMarkRaw:{{ state}}</div>
@@ -19,15 +19,9 @@
 <script lang="ts">
 import { markRaw, reactive, toRaw } from "vue";
 
-interface stateInfo {
-  name: string;
-  age: number;
-  hoppies: object;
-  arr?: object;
-}
 export default {
   setup() {
-    const state = reactive<stateInfo>({
+    const state = reactive<any>({
       name: "xjt",
       age: 22,
       hoppies: {
@@ -35,11 +29,10 @@ export default {
       },
     });
 
-    // const testToRaw = function () {
-    // 把代理对象state变为普通对象，state不再响应式
     // const state2 = toRaw(state);
-    //   state.age++;
-    //   console.log("state.age_toRaw", state.age);
+    // const testToRaw = function () {
+    //   state2.age++;
+    //   console.log("state2.age_toRaw", state2.age);
     // };
 
     const testMarkRaw = function () {
@@ -57,6 +50,7 @@ export default {
 
     return {
       state,
+      // state2,
       // testToRaw,
       testMarkRaw,
     };
