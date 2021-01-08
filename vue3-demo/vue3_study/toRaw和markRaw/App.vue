@@ -2,9 +2,9 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-08 21:45:26
+ * @LastEditTime: 2021-01-08 21:48:40
  * @Description: file content
- * @FilePath: \Vue3\vue3-demo\src\App.vue
+ * @FilePath: \Vue3\vue3-demo\vue3_study\toRaw和markRaw\App.vue
 -->
 <template>
   <div id="app">
@@ -23,7 +23,7 @@ interface stateInfo {
   name: string;
   age: number;
   hoppies: object;
-  arr?: object;
+  arr?: string[];
 }
 export default {
   setup() {

@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-08 21:45:26
+ * @LastEditTime: 2021-01-08 21:49:16
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -23,7 +23,7 @@ interface stateInfo {
   name: string;
   age: number;
   hoppies: object;
-  arr?: object;
+  arr?: string[];
 }
 export default {
   setup() {
