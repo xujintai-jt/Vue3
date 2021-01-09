@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-09 21:15:50
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-09 21:21:02
+ * @LastEditTime: 2021-01-09 21:26:35
  * @Description: file content
  * @FilePath: \Vue3\test\test-proxy.html
 -->
@@ -28,6 +28,10 @@
         } else {
           return 'hahaha'
         }
+      },
+      set(target, _p, _v) {
+        console.log('_p', _p);
+        console.log('_v', _v);
       }
     }
 
@@ -35,6 +39,7 @@
 
     console.log(proxy_obj.name); //xjt666
     console.log(obj.name); //xjt(未进入陷阱函数)
+    proxy_obj.name = 'xjt999'
   </script>
 
 </body>
