@@ -1,0 +1,45 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-01-10 14:24:06
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-01-10 14:34:37
+ * @Description: file content
+ * @FilePath: \Vue3\test\test-reflect.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const student = {
+      name: 'wwf',
+      color: 'yellow',
+      play: function () {
+        console.log('王者荣耀');
+      }
+    }
+
+    // Reflect.has(target, propertyKey)
+    // 判断一个对象是否存在某个属性， 和 in 运算符 的功能完全相同。
+    // const result = Reflect.has(student, 'name') //true
+    // console.log('name' in student);
+    // console.log(result);
+
+    // Reflect.ownKeys(target)
+    // 返回一个包含所有自身属性（不包含继承属性）的数组。(类似于 Object.keys(), 但不会受enumerable影响).
+    // const result = Reflect.ownKeys(student);
+    // console.log(result);
+
+    console.log(Reflect instanceof Function);
+  </script>
+
+</body>
+
+</html>
