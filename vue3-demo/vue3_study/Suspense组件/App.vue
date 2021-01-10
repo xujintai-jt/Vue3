@@ -2,16 +2,16 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-10 21:50:42
+ * @LastEditTime: 2021-01-10 21:55:53
  * @Description: file content
- * @FilePath: \Vue3\vue3-demo\src\App.vue
+ * @FilePath: \Vue3\vue3-demo\vue3_study\Suspense组件\App.vue
 -->
 <template>
   <div>
     <h1>App组件</h1>
     <!-- 子组件 -->
     <AsyncSon />
-
+    <!-- 使用Suspense组件 template中包裹的组件中setup可以返回promise;resolve({ msg })式 -->
     <Suspense>
       <template v-slot:default>
         <AsyncSon />
