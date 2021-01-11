@@ -2,12 +2,12 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:02:12
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-11 21:41:43
+ * @LastEditTime: 2021-01-11 21:46:12
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\List-Item.vue
 -->
 <template>
-  <div @onmousemove="toActive" :style="{'.active':active}">
+  <div @mousemove="toActive" :style="{'.active':active}">
     <div class="List-item" v-for="(item) in tasks" :key="item.id">
       <input type="checkbox" v-model="item.checked" />
       <span>{{item.name}}</span>
@@ -24,9 +24,10 @@ export default {
     const tasks = inject("tasks");
     const active = ref(false);
     const toActive = function () {
-      active = true;
+      console.log(1);
+      active.value = true;
     };
-    return { active, tasks };
+    return { active, tasks, toActive };
   },
 };
 </script>
