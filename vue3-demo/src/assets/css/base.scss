@@ -1,0 +1,21 @@
+.margin-demo {
+  margin: 11px 0;
+}
+
+.float-right {
+  float: right;
+}
+
+.red-btn {
+  height: 25px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  background-color: rgb(226, 69, 69);
+}
+
+//取消输入框外边框
+input {
+  outline-style: none;
+  border-radius: 3px;
+}
