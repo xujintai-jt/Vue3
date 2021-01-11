@@ -2,13 +2,19 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:02:12
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-11 21:46:12
+ * @LastEditTime: 2021-01-11 21:48:55
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\List-Item.vue
 -->
 <template>
-  <div @mousemove="toActive" :style="{'.active':active}">
-    <div class="List-item" v-for="(item) in tasks" :key="item.id">
+  <div>
+    <div
+      class="List-item"
+      v-for="(item) in tasks"
+      :key="item.id"
+      @mousemove="toActive"
+      :style="{'.active':active}"
+    >
       <input type="checkbox" v-model="item.checked" />
       <span>{{item.name}}</span>
       <button class="red-btn absolute-right" v-show="active">删除此任务</button>
