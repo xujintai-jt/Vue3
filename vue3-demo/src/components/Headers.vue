@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-10 19:47:29
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-11 21:08:06
+ * @LastEditTime: 2021-01-11 21:19:06
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\Headers.vue
 -->
@@ -10,7 +10,7 @@
   <input
     class="headers-input margin-demo"
     type="text"
-    @keyup="addTasks(headersInputValue)"
+    @keyup.enter="addTasks(headersInputValue)"
     v-model="headersInputValue"
     placeholder="请输入你的任务名称,按回车键确认"
   />
