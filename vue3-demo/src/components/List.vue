@@ -2,13 +2,13 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:01:49
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-11 21:24:09
+ * @LastEditTime: 2021-01-11 21:32:01
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\List.vue
 -->
 <template>
   <div class="list margin-demo">
-    <list-item @onmousemove="active" />
+    <list-item />
   </div>
 </template>
 
@@ -19,9 +19,7 @@ import ListItem from "./List-Item";
 import { ref } from "vue";
 
 export default {
-  setup() {
-    const active = ref(false);
-  },
+  setup() {},
   components: {
     ListItem,
   },
