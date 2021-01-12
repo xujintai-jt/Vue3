@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:02:12
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-12 14:11:27
+ * @LastEditTime: 2021-01-12 18:11:50
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\List-Item.vue
 -->
@@ -35,8 +35,6 @@ export default {
     //inject接收数据
     const tasks = inject("tasks");
     const removeTask = inject("removeTask");
-    const removeChecked = inject("removeChecked");
-    const boxChecked = inject("boxChecked");
 
     //创建数据
     const activeIndex = ref("");
@@ -48,16 +46,6 @@ export default {
     const clearActive = function () {
       activeIndex.value = "";
     };
-
-    // watch(
-    //   tasks,
-    //   () => {
-    //     fullName3.value = user.firstName + "-" + user.lastName;
-    //   },
-    //   {
-    //     deep: true, // 是否是深度监视, 默认是false
-    //   }
-    // );
 
     return { activeIndex, tasks, toActive, clearActive, removeTask };
   },

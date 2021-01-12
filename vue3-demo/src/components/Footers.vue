@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:02:29
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-12 13:24:35
+ * @LastEditTime: 2021-01-12 19:25:46
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\Footers.vue
 -->
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { reactive, ref } from "vue";
+import { reactive, ref, computed, watch, toRefs } from "vue";
 
 export default {
   props: {
@@ -26,19 +26,40 @@ export default {
       },
     },
     checkedTask: {
+      type: Number,
+    },
+    setChecked: {
       type: Function,
     },
   },
   setup(props) {
-    const isAllCheck = ref(true);
     //props传递
-    const tasks = props.tasks;
-    const checkedTask = props.checkedTask;
+    const tasks = props.tasks; //数据
+    const setChecked = props.setChecked; //方法
+
+    //计算属性
+    const isAllCheck = computed({
+      get() {
+        return props.checkedTask === tasks.length;
+      },
+      set(value) {
+        if (value) {
+          setChecked(value);
+        } else {
+          setChecked(value);
+        }
+      },
+    });
+    //watch
+    watch(tasks, () => {}, {
+      immediate: true, // 是否初始化立即执行一次, 默认是false
+      deep: true, // 是否是深度监视, 默认是false
+    });
 
     return {
       isAllCheck,
       tasks,
-      checkedTask,
+      ...toRefs(props),
     };
   },
 };
