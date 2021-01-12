@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:02:12
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-12 13:33:42
+ * @LastEditTime: 2021-01-12 14:11:27
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\List-Item.vue
 -->
@@ -49,15 +49,15 @@ export default {
       activeIndex.value = "";
     };
 
-    watch(
-      tasks,
-      () => {
-        fullName3.value = user.firstName + "-" + user.lastName;
-      },
-      {
-        deep: true, // 是否是深度监视, 默认是false
-      }
-    );
+    // watch(
+    //   tasks,
+    //   () => {
+    //     fullName3.value = user.firstName + "-" + user.lastName;
+    //   },
+    //   {
+    //     deep: true, // 是否是深度监视, 默认是false
+    //   }
+    // );
 
     return { activeIndex, tasks, toActive, clearActive, removeTask };
   },
