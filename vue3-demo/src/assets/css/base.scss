@@ -11,7 +11,7 @@
   border: 0;
   border-radius: 4px;
   color: #fff;
-  background-color: rgb(226, 69, 69);
+  background-color: rgb(243, 69, 69);
 }
 
 .absolute-right {
@@ -22,7 +22,8 @@
 }
 
 //取消输入框外边框
-input {
+input,
+button {
   outline-style: none;
   border-radius: 3px;
 }

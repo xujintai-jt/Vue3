@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-10 19:47:29
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-11 21:19:06
+ * @LastEditTime: 2021-01-12 12:56:54
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\Headers.vue
 -->
@@ -25,7 +25,7 @@ export default {
       type: Function,
     },
   },
-  setup(props) {
+  setup(props: any) {
     const headersInputValue = ref("");
     const addTasks = props.addTasks;
 

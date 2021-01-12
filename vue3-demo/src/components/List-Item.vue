@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:02:12
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-11 21:48:55
+ * @LastEditTime: 2021-01-12 13:33:42
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\List-Item.vue
 -->
@@ -10,14 +10,19 @@
   <div>
     <div
       class="List-item"
-      v-for="(item) in tasks"
+      v-for="(item,index) in tasks"
       :key="item.id"
-      @mousemove="toActive"
-      :style="{'.active':active}"
+      @mousemove="toActive(index)"
+      @mouseout="clearActive"
+      :class="(activeIndex===index)?'active':''"
     >
       <input type="checkbox" v-model="item.checked" />
-      <span>{{item.name}}</span>
-      <button class="red-btn absolute-right" v-show="active">删除此任务</button>
+      <span>{{item.name}}{{item.id}}</span>
+      <button
+        class="red-btn absolute-right"
+        v-show="(activeIndex===index)"
+        @click="removeTask(index)"
+      >删除此任务</button>
     </div>
   </div>
 </template>
@@ -27,13 +32,34 @@ import { reactive, inject, ref } from "vue";
 
 export default {
   setup() {
+    //inject接收数据
     const tasks = inject("tasks");
-    const active = ref(false);
-    const toActive = function () {
-      console.log(1);
-      active.value = true;
+    const removeTask = inject("removeTask");
+    const removeChecked = inject("removeChecked");
+    const boxChecked = inject("boxChecked");
+
+    //创建数据
+    const activeIndex = ref("");
+
+    //创建方法
+    const toActive = function (index) {
+      activeIndex.value = index;
     };
-    return { active, tasks, toActive };
+    const clearActive = function () {
+      activeIndex.value = "";
+    };
+
+    watch(
+      tasks,
+      () => {
+        fullName3.value = user.firstName + "-" + user.lastName;
+      },
+      {
+        deep: true, // 是否是深度监视, 默认是false
+      }
+    );
+
+    return { activeIndex, tasks, toActive, clearActive, removeTask };
   },
 };
 </script>
@@ -47,6 +73,7 @@ export default {
 }
 
 .active {
-  background-color: pink;
+  color: #1a73e8;
+  background-color: rgb(243, 243, 243);
 }
 </style>

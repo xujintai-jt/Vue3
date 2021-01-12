@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:01:49
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-11 21:32:01
+ * @LastEditTime: 2021-01-12 12:21:51
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\List.vue
 -->
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 //引入子组件
-import ListItem from "./List-Item";
+import ListItem from "./List-Item.vue";
 //引入方法
 import { ref } from "vue";
 
