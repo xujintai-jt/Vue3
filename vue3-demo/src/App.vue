@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-12 19:35:35
+ * @LastEditTime: 2021-01-12 19:46:19
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -58,9 +58,7 @@ export default {
       });
     };
     //清除选中任务
-    const removeChecked = function () {
-      tasks.forEach((item, index) => {});
-    };
+    const removeChecked = function () {};
 
     //计算属性类
     //筛选checked的计算属性(使用时取xxx.value)
