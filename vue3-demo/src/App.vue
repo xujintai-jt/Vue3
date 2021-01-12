@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-12 19:07:48
+ * @LastEditTime: 2021-01-12 19:35:35
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -10,7 +10,12 @@
   <div id="app">
     <headers :addTasks="addTasks" :removeTask="removeTask" />
     <list />
-    <footers :tasks="tasks" :checkedTask="checkedTask" :setChecked="setChecked" />
+    <footers
+      :tasks="tasks"
+      :checkedTask="checkedTask"
+      :setChecked="setChecked"
+      :removeChecked="removeChecked"
+    />
   </div>
 </template>
 
@@ -52,6 +57,10 @@ export default {
         item.checked = isAllChecked;
       });
     };
+    //清除选中任务
+    const removeChecked = function () {
+      tasks.forEach((item, index) => {});
+    };
 
     //计算属性类
     //筛选checked的计算属性(使用时取xxx.value)
@@ -59,7 +68,6 @@ export default {
       const checkedTasks = tasks.reduce((pre, item) => {
         return pre + (item.checked ? 1 : 0);
       }, 0);
-      console.log("checkedTasks", checkedTasks);
 
       return checkedTasks;
     });
@@ -69,7 +77,14 @@ export default {
     provide("tasks", tasks);
     provide("removeTask", removeTask);
 
-    return { addTasks, removeTask, tasks, checkedTask, setChecked };
+    return {
+      addTasks,
+      removeTask,
+      tasks,
+      checkedTask,
+      setChecked,
+      removeChecked,
+    };
   },
 
   components: {

@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:02:29
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-12 19:25:46
+ * @LastEditTime: 2021-01-12 19:29:25
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\Footers.vue
 -->
@@ -10,7 +10,7 @@
   <div class="footers margin-demo">
     <input type="checkbox" v-model="isAllCheck" />
     <span class="margin-left">已完成{{checkedTask}}/全部{{tasks.length}}</span>
-    <button class="float-right red-btn">清除已完成任务</button>
+    <button class="float-right red-btn" @click="removeChecked">清除已完成任务</button>
   </div>
 </template>
 
@@ -29,6 +29,9 @@ export default {
       type: Number,
     },
     setChecked: {
+      type: Function,
+    },
+    removeChecked: {
       type: Function,
     },
   },
