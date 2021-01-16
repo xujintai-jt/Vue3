@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-16 19:58:18
+ * @LastEditTime: 2021-01-16 21:05:47
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -29,7 +29,7 @@ import { reactive, provide, computed } from "vue";
 
 export default {
   setup() {
-    const tasks = reactive([
+    let tasks = reactive([
       { id: 1, name: "宝马", checked: true },
       { id: 2, name: "奥迪", checked: true },
       { id: 3, name: "奔驰", checked: true },
@@ -59,7 +59,9 @@ export default {
     };
     //清除选中任务
     const removeChecked = function () {
-      console.log("清除所有信息");
+      // console.log("清除所有信息");
+      const newTasks = tasks.filter((item) => item.checked);
+      console.log(tasks);
     };
 
     //计算属性类
