@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:02:12
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-12 18:11:50
+ * @LastEditTime: 2021-01-16 21:38:59
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\List-Item.vue
 -->
@@ -10,7 +10,7 @@
   <div>
     <div
       class="List-item"
-      v-for="(item,index) in tasks"
+      v-for="(item,index) in state"
       :key="item.id"
       @mousemove="toActive(index)"
       @mouseout="clearActive"
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { reactive, inject, ref } from "vue";
+import { reactive, inject, ref, toRefs } from "vue";
 
 export default {
   setup() {
@@ -47,7 +47,7 @@ export default {
       activeIndex.value = "";
     };
 
-    return { activeIndex, tasks, toActive, clearActive, removeTask };
+    return { activeIndex, ...toRefs(tasks), toActive, clearActive, removeTask };
   },
 };
 </script>

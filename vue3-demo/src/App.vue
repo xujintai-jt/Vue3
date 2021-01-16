@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-16 21:05:47
+ * @LastEditTime: 2021-01-16 21:40:01
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -29,11 +29,13 @@ import { reactive, provide, computed } from "vue";
 
 export default {
   setup() {
-    let tasks = reactive([
-      { id: 1, name: "宝马", checked: true },
-      { id: 2, name: "奥迪", checked: true },
-      { id: 3, name: "奔驰", checked: true },
-    ]);
+    const tasks = reactive({
+      state: [
+        { id: 1, name: "宝马", checked: true },
+        { id: 2, name: "奥迪", checked: true },
+        { id: 3, name: "奔驰", checked: true },
+      ],
+    });
     //方法类
     //输入框添加数据的方法
     const addTasks = function (value: string) {
@@ -44,30 +46,30 @@ export default {
           name,
           checked: false,
         };
-        tasks.unshift(task);
+        tasks.state.unshift(task);
       }
     };
     //输入框移除数据的方法
     const removeTask = function (index: number) {
-      tasks.splice(index, 1);
+      tasks.state.splice(index, 1);
     };
     //设置所有的checked
     const setChecked = function (isAllChecked: boolean) {
-      tasks.forEach((item) => {
+      tasks.state.forEach((item) => {
         item.checked = isAllChecked;
       });
     };
     //清除选中任务
     const removeChecked = function () {
       // console.log("清除所有信息");
-      const newTasks = tasks.filter((item) => item.checked);
+      tasks.state = tasks.state.filter((item) => !item.checked);
       console.log(tasks);
     };
 
     //计算属性类
     //筛选checked的计算属性(使用时取xxx.value)
     const checkedTask = computed(() => {
-      const checkedTasks = tasks.reduce((pre, item) => {
+      const checkedTasks = tasks.state.reduce((pre, item) => {
         return pre + (item.checked ? 1 : 0);
       }, 0);
 

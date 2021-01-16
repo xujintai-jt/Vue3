@@ -2,14 +2,14 @@
  * @Author: xujintai
  * @Date: 2021-01-11 16:02:29
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-12 19:29:25
+ * @LastEditTime: 2021-01-16 21:44:26
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\components\Footers.vue
 -->
 <template>
   <div class="footers margin-demo">
     <input type="checkbox" v-model="isAllCheck" />
-    <span class="margin-left">已完成{{checkedTask}}/全部{{tasks.length}}</span>
+    <span class="margin-left">已完成{{checkedTask}}/全部{{tasks.state.length}}</span>
     <button class="float-right red-btn" @click="removeChecked">清除已完成任务</button>
   </div>
 </template>
@@ -20,9 +20,9 @@ import { reactive, ref, computed, watch, toRefs } from "vue";
 export default {
   props: {
     tasks: {
-      type: Array,
+      type: Object,
       default() {
-        return [];
+        return {};
       },
     },
     checkedTask: {
@@ -37,13 +37,12 @@ export default {
   },
   setup(props) {
     //props传递
-    const tasks = props.tasks; //数据
     const setChecked = props.setChecked; //方法
 
     //计算属性
     const isAllCheck = computed({
       get() {
-        return props.checkedTask === tasks.length;
+        return props.checkedTask === props.tasks.state.length;
       },
       set(value) {
         if (value) {
@@ -54,14 +53,13 @@ export default {
       },
     });
     //watch
-    watch(tasks, () => {}, {
-      immediate: true, // 是否初始化立即执行一次, 默认是false
-      deep: true, // 是否是深度监视, 默认是false
-    });
+    // watch(tasks, () => {}, {
+    //   immediate: true, // 是否初始化立即执行一次, 默认是false
+    //   deep: true, // 是否是深度监视, 默认是false
+    // });
 
     return {
       isAllCheck,
-      tasks,
       ...toRefs(props),
     };
   },
