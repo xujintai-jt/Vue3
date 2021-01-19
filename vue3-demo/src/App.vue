@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-19 13:28:22
+ * @LastEditTime: 2021-01-19 14:56:20
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -29,17 +29,17 @@ import { reactive, provide, computed } from "vue";
 
 export default {
   setup() {
-    const res = JSON.parse(localStorage.getItem("Task"));
-    console.log(res);
-
-    const tasks = reactive(res);
+    // const res = JSON.parse(localStorage.getItem("Task") || '{"state":[]}');
+    // const tasks = reactive(res);
+    const tasks = reactive({
+      state: [
+        { id: 1, name: "奔驰", checked: false },
+        { id: 2, name: "宝马", checked: false },
+        { id: 3, name: "奥迪", checked: false },
+      ],
+    });
 
     //方法类
-    //将对象转换为json字符串
-    const toJsonInLocal = function () {
-      localStorage.setItem("Task", JSON.stringify(tasks));
-    };
-
     //输入框添加数据的方法
     const addTasks = function (value: string) {
       if (value.trim()) {
@@ -51,25 +51,23 @@ export default {
         };
         tasks.state.unshift(task);
       }
-      toJsonInLocal();
     };
     //输入框移除数据的方法
     const removeTask = function (index: number) {
       tasks.state.splice(index, 1);
-      toJsonInLocal();
     };
     //设置所有的checked
     const setChecked = function (isAllChecked: boolean) {
-      tasks.state.forEach((item) => {
-        item.checked = isAllChecked;
-      });
-      toJsonInLocal();
+      if (tasks.state.length) {
+        tasks.state.forEach((item) => {
+          item.checked = isAllChecked;
+        });
+      }
     };
     //清除选中任务
     const removeChecked = function () {
       // console.log("清除所有信息");
       tasks.state = tasks.state.filter((item) => !item.checked);
-      toJsonInLocal();
     };
 
     //计算属性类
