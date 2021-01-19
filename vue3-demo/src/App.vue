@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-16 21:40:01
+ * @LastEditTime: 2021-01-19 12:47:54
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -42,7 +42,7 @@ export default {
       if (value.trim()) {
         const name = value.trim();
         const task = {
-          id: 1,
+          id: Date.now(),
           name,
           checked: false,
         };
