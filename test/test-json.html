@@ -1,0 +1,38 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-01-19 13:59:13
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-01-19 14:02:35
+ * @Description: file content
+ * @FilePath: \Vue3\test\test-json.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script lang="ts">
+    const obj = {
+      state: [{
+        name: 'xjt',
+        age: 22
+      }, {
+        name: 'wwf',
+        age: 21
+      }]
+    }
+
+    const json = JSON.stringify(obj)
+    console.log('json', typeof json, json);
+    const obj2 = JSON.parse(json)
+    console.log('obj2', typeof obj2, obj2);
+  </script>
+
+</body>
+
+</html>
