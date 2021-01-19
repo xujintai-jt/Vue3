@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-19 14:56:20
+ * @LastEditTime: 2021-01-19 15:07:26
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -25,7 +25,7 @@ import Headers from "./components/Headers.vue";
 import List from "./components/List.vue";
 import Footers from "./components/Footers.vue";
 // 引入方法
-import { reactive, provide, computed } from "vue";
+import { reactive, provide, computed, watch } from "vue";
 
 export default {
   setup() {
@@ -85,6 +85,21 @@ export default {
     provide("tasks", tasks);
     provide("removeTask", removeTask);
 
+    //watch
+    //如果是ref对象, 直接指定;
+    // 如果是reactive对象中的属性, 必须通过函数来指定;
+    watch(
+      () => tasks.state,
+      (value) => {
+        console.log(1);
+
+        localStorage.setItem("Task_key", JSON.stringify(value));
+      },
+      {
+        immediate: true, // 是否初始化立即执行一次, 默认是false
+        deep: true, // 是否是深度监视, 默认是false
+      }
+    );
     return {
       addTasks,
       removeTask,
