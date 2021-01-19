@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2020-12-31 16:38:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-19 15:07:26
+ * @LastEditTime: 2021-01-19 16:00:03
  * @Description: file content
  * @FilePath: \Vue3\vue3-demo\src\App.vue
 -->
@@ -87,8 +87,9 @@ export default {
 
     //watch
     //如果是ref对象, 直接指定;
-    // 如果是reactive对象中的属性, 必须通过函数来指定;
+    // 如果是reactive对象中的属性(非响应式数据), 必须通过函数来指定;
     watch(
+      // tasks,
       () => tasks.state,
       (value) => {
         console.log(1);

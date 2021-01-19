@@ -1,0 +1,60 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-01-19 16:02:12
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-01-19 16:17:02
+ * @Description: file content
+ * @FilePath: \Vue3\test\test-vue.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <span>a:{{a}}</span>
+    <span>b:{{b}}</span>
+    <button @click="addB">addB</button>
+    <button @click="addA">addA</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          a: 1
+        }
+      },
+      created() {
+        this.b = 0
+      },
+      methods: {
+        addB() {
+          this.b++
+          console.log('b: ', this.b);
+        },
+        addA() {
+          this.a++
+          console.log('a: ', this.a);
+        }
+      },
+      watch: {
+        a(value) {
+          console.log('a的值变化为' + value);
+        },
+        b(value) {
+          console.log('b的值变化为' + value);
+        }
+      }
+
+    })
+  </script>
+</body>
+
+</html>
