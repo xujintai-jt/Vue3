@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-01-19 18:08:37
  * @LastEditors: xujintai
- * @LastEditTime: 2021-01-19 21:56:51
+ * @LastEditTime: 2021-01-20 16:29:49
  * @Description: file content
  * @FilePath: \Vue3\test\test-defineProperty.html
 -->
@@ -16,46 +16,40 @@
 </head>
 
 <body>
-  <script>
+  <script type="module">
+    // import defineReactive from './defineReactive'
+    // import Observer from './Observer'
     const obj = {
-      name: 'xjt'
+      name: 'xjt',
+      obj2: {
+        name2: 'xjt666'
+      }
     }
 
-    // var temp
 
-    // Object.defineProperty(obj, 'name', {
-    //   get() {
-    //     console.log('get:name属性被读取了');
-    //     return temp
-    //   },
-    //   set(newValue) {
-    //     console.log('set:name属性被改变了');
-    //     temp = newValue
-    //   }
-    // })
-
-    function defineReactive(target, key, val) {
-      Object.defineProperty(target, key, {
-        get() {
-          console.log('get:name属性被读取了');
-          return val
-        },
-        set(newValue) {
-          console.log('set:name属性被改变了');
-          if (val === newValue) {
-            return
-          }
-          val = newValue
-        }
-      })
+    
+function defineReactive(target, key, val) {
+  if (arguments.length === 2) {
+    val=target[key]
+  }
+  Object.defineProperty(target, key, {
+    get() {
+      console.log('get:name属性被读取了');
+      return val
+    },
+    set(newValue) {
+      console.log('set:name属性被改变了');
+      if (val === newValue) {
+        return
+      }
+      val = newValue
     }
+  })
+} 
 
-    defineReactive(obj, 'name', 'xjt')
+defineReactive(obj, 'name')
+console.log(obj.name);
 
-    // obj.name = 'xjt666'
-    // console.log(obj.name);
-    // obj.name = 'xjt999'
-    console.log(obj.name);
   </script>
 
 </body>
